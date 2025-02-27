@@ -11,5 +11,7 @@ Some common NLP tasks include:
 - Machine Translation
 - Sentiment Analysis
 - My name is Ihsaan
+-is it ok 
+- thesis
 
 The future of NLP looks promising! Researchers are working on making language models more efficient and accurate.

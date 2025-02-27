@@ -12,16 +12,13 @@ nltk.download('omw-1.4', download_dir=os.getcwd())  # Open Multilingual WordNet
 
  
 text = open("textforpreprocessing2updated.txt", "rt").read()
-
-sentence_count = 0
- 
 sentences = sent_tokenize(text)
-print("\nSentence tokens:")
+sentence_count = 0
 for sentence in sentences:
-    print(f"- {sentence}")
-    # Check if "is" is in the current sentence
-    if " is " in sentence:  # Check for " is " to avoid partial matches
-      sentence_count += 1
- 
+    words = word_tokenize(sentence)
+    print(f"Tokenized words in sentence: {words}")
+    if "is" in words:  # Check for "is" in the list of words
+        sentence_count += 1
+        print(f"Found 'is' in sentence: {sentence}") 
 print(f"\nTotal sentences containing 'is': {sentence_count}")
  
