@@ -12,6 +12,7 @@ nltk.download('omw-1.4', download_dir=os.getcwd())  # Open Multilingual WordNet
 
  
 text = open("textforpreprocessing2updated.txt", "rt").read()
+
 sentences = sent_tokenize(text)
 sentence_count = 0
 for sentence in sentences:
@@ -21,4 +22,6 @@ for sentence in sentences:
         sentence_count += 1
         print(f"Found 'is' in sentence: {sentence}") 
 print(f"\nTotal sentences containing 'is': {sentence_count}")
+
+
  
