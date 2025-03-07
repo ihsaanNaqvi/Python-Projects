@@ -1,0 +1,17 @@
+This is my new file that I'll use for cosine product 
+This is my new file,in which I'll to perform the preprocessing taks and count the "is" sentence .
+
+Natural Language Processing (NLP) is a fascinating field! It's a branch of artificial intelligence that helps computers understand, interpret, and manipulate human language.
+
+In 2024, NLP applications are everywhere. They're used in chatbots, translation services, and sentiment analysis tools. Companies like Google, Amazon, and Microsoft are investing heavily in NLP research.
+
+Some common NLP tasks include:
+- Text classification
+- Named Entity Recognition
+- Machine Translation
+- Sentiment Analysis
+- My name is Ihsaan
+-is it ok 
+- thesis
+
+The future of NLP looks promising! Researchers are working on making language models more efficient and accurate.
