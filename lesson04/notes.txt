@@ -1,0 +1,85 @@
+word embedding
+
+1. Apple 1,0,0,0,0
+2.  Orange 0,1,0,0,0
+3. Juice
+4. Like
+5. I 0,0,0,0,1
+
+one shot vector
+
+I like orange juice
+
+orange = I, like, juice
+
+
+0,1,0,0,0
+
+0,0,1,1,1
+
+
+
+
+Vector space
+
+
+king - man + woman
+
+
+feed forward network
+
+y = f(W x + b)
+
+x,y, b are vectors
+W is a matrix
+
+word2vec was published by Google in 2013
+
+z = f(W1 x + b1)
+y = f(W2 + z + b2)
+
+
+
+x=0,1,0,0,0
+
+y=0,0,1,1,1
+
+
+We will get W1, W2, b1 and b2
+
+W1
+
+My dictionary contains 100 000 words.
+len(x) = 100000
+len(y) = 100000
+len(z) = 300 or 500
+
+
+
+x=0,1,0,0,0
+y=0,0,1,1,1
+
+W1 is a matrix with dimentions len(x) x len(z).
+W1 contains len(x) columns and len(z) rows
+
+contexes
+
+W1 matrix contains a set of vectors for every possible value of x (some word).
+It is called word embedding.
+
+
+
+vector size is len(z)
+
+task --
+You must build the lists of positive and the negative words to get a result containing the words "sun" or "car".
+The initial lists cannot contain the desired words themselves.
+
+
+homonyms
+
+Table
+
+My cup is on the table in the kitchen.
+
+I have added a table to a Microsoft Word document.
