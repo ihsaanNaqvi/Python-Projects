@@ -8,40 +8,35 @@
 # model = api.load("word2vec-google-news-300")
 
 
-# positive_words = ["Day","Light",["Drive"] ,["Road"] ]
-# Negative_words = ["Night", "Walk"]
-# #Get most similar words 
-# sims = model.most_similar(positive=positive_words, negative= Negative_words, topn=10)
-
-# for word, score in sims:
-#     print(word)
-
 import gensim.downloader as api
- 
-try:
-    model = api.load("word2vec-google-news-300")
-except Exception as e:
-    print("Error loading model:", e)
-    exit()
- 
-positive_words = ["Day", "Light", "Drive", "Road"]   
-negative_words = ["Night", "Walk"]
- 
-for word in positive_words + negative_words:
-    if word not in model.key_to_index:
-        print(f"Warning: '{word}' not in vocabulary.")
- 
-try:
-    sims = model.most_similar(positive=positive_words, negative=negative_words, topn=10)
-    
-    if not sims:
-        print("No similar words found.")
-    else:
-        for word, score in sims:
-            print(f"{word}: {score}")
 
-except IndexError as e:
-    print("An IndexError occurred:", e)
-except Exception as e:
-    print("An error occurred:", e)
+
+model = api.load("glove-twitter-200")
+
+positive = [
+    "bright", "road", "drive", "summer", "sunshine", "sunny", "beach", "roadtrip",
+    "driving", "highway", "convertible", "vehicle", "speed", "warm", "heat", "daylight",
+    "sky", "transport", "travel", "automobile", "energy", "wheels"
+]   
+
+negative = [
+    "night", "walk", "rain", "cloud", "cold", "dark", "slow", "storm", "shadow"
+]   
+
+ 
+sims = model.most_similar(positive=positive, negative=negative, topn=10)
+
+ 
+print("Top similar words:")
+for word, similarity in sims:
+    print(word, similarity)
+
+ 
+found_words = [word for word, _ in sims if word in ["sun", "car"]]
+
+if found_words:
+    print("\nSuccessfully found:", ", ".join(found_words))
+else:
+    print("\nDidn't get 'sun' or 'car'. Try adjusting the word lists!")
+
 
