@@ -1,0 +1,34 @@
+ import torch
+from torch.utils.data import Dataset
+from collections import OrderedDict
+
+class OneHotDataset(Dataset):
+    def __init__(self, words):
+        self.words = words
+        self.word_to_index = {word: i for i, word in enumerate(OrderedDict.fromkeys(words))}
+        self.one_hot_vectors = self._one_hot_encode()
+    
+    def _one_hot_encode(self):
+        num_words = len(self.word_to_index)
+        one_hot_vectors = []
+        for word in self.words:
+            one_hot = torch.zeros(num_words)
+            one_hot[self.word_to_index[word]] = 1
+            one_hot_vectors.append(one_hot)
+        return one_hot_vectors
+    
+    def __len__(self):
+        return len(self.words)
+    
+    def __getitem__(self, idx):
+        return self.one_hot_vectors[idx]
+    
+    def num_words(self):
+        return len(self.word_to_index)
+
+# Example usage
+words = ["apple", "banana", "apple", "cherry", "banana", "date"]
+dataset = OneHotDataset(words)
+
+print("Number of unique words:", dataset.num_words())
+print("One-hot vector for first word:", dataset[0])
