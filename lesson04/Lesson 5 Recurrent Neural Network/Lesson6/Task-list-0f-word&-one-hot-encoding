@@ -32,3 +32,7 @@ dataset = OneHotDataset(words)
 
 print("Number of unique words:", dataset.num_words())
 print("One-hot vector for first word:", dataset[0])
+
+
+
+#result 
