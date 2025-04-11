@@ -77,7 +77,9 @@ class NamesDataset:
         return len(self.data)
 
 # Example usage
-zip_path = r"D:/MS Big Data and Data Science/Second Semester/Python programming By Sir Mikhail Ovsiannikov/Python-Projects/lessons/Lesson 6  task/names.zip"
+# zip_path = r"D:/MS Big Data and Data Science/Second Semester/Python programming By Sir Mikhail Ovsiannikov/Python-Projects/lessons/Lesson 6  task/names.zip"
+zip_path = "/home/ihsaan/names.zip"
+
 dataset = NamesDataset(zip_path)
 
 # Test the dataset
