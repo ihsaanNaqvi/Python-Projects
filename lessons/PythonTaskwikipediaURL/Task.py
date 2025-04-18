@@ -15,9 +15,10 @@ def get_links(url, limit=20):
         urls = []
         for link in links:
             href = link.get("href")
+            # Filter valid English Wikipedia article links
             if href.startswith("/wiki/") and ":" not in href:
                 full_url = urljoin(WIKI_BASE, href)
-                if full_url not in urls:
+                if full_url.startswith(WIKI_BASE + "/wiki/") and full_url not in urls:
                     urls.append(full_url)
             if len(urls) >= limit:
                 break
@@ -34,6 +35,7 @@ def find_chain(start_url, target_url, max_depth=5):
     while queue:
         current_url, path = queue.popleft()
         print(f"Visiting ({len(path) - 1}): {current_url}")
+
         if current_url == target_url:
             return path
         if current_url in visited:
@@ -44,7 +46,7 @@ def find_chain(start_url, target_url, max_depth=5):
             continue
 
         for link in get_links(current_url, limit=20):
-            if link not in visited:
+            if link not in visited and link.startswith(WIKI_BASE + "/wiki/"):
                 queue.append((link, path + [link]))
 
     return None
