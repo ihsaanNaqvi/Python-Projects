@@ -57,6 +57,8 @@ def main():
 
     print("Starting URL:", start_url)
     print("Target URL:", target_url)
+    # Forward path
+    print("\n➡️ Searching path from START to TARGET")
     path = find_chain(start_url, target_url, max_depth=5)
 
     if path:
@@ -65,6 +67,15 @@ def main():
             print(f"Step {i}: {url}")
     else:
         print("\n❌ Target URL is unreachable within 5 transitions.")
+    # Reverse path
+    print("\n⬅️ Searching path from TARGET back to START")
+    reverse_path = find_chain(target_url, start_url, max_depth=5)
+    if reverse_path:
+        print("\n✅ Reverse path found (Target ➡ Start):")
+        for i, url in enumerate(reverse_path):
+            print(f"Step {i}: {url}")
+    else:
+        print("\n❌ No reverse path found from Target to Start within 5 transitions.")
 
 if __name__ == "__main__":
     main()
